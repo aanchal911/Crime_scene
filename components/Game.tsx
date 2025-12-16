@@ -74,8 +74,8 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex }) => {
   // --- GAME PLAY STATE ---
   return (
     <div className="w-full animate-fade-in">
-      {/* Header Info Bar */}
-      <div className="flex justify-between items-center bg-zinc-900/80 border-t border-b border-zinc-800 py-3 px-4 mb-8 backdrop-blur-sm">
+      {/* Header Info Bar - Increased Transparency */}
+      <div className="flex justify-between items-center bg-zinc-900/60 border-t border-b border-zinc-800 py-3 px-4 mb-8 backdrop-blur-sm">
         <div className="flex flex-col">
             <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-typewriter">Detective Unit</span>
             <span className="text-sm font-bold text-zinc-200">{team.name}</span>

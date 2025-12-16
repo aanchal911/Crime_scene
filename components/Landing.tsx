@@ -60,8 +60,8 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
         <span className="nuv-drop"></span>
       </h1>
 
-      {/* Card Container */}
-      <div className="bg-zinc-950/60 border border-zinc-800 p-8 rounded-sm backdrop-blur-md mb-12 max-w-sm shadow-2xl relative overflow-hidden group">
+      {/* Card Container - More Transparent */}
+      <div className="bg-zinc-950/40 border border-zinc-800 p-8 rounded-sm backdrop-blur-md mb-12 max-w-sm shadow-2xl relative overflow-hidden group">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blood-900 via-blood-600 to-blood-900"></div>
         
         <p className="text-zinc-400 font-typewriter text-sm leading-relaxed mb-6">

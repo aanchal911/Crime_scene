@@ -9,23 +9,26 @@ const Background: React.FC<BackgroundProps> = ({ children }) => {
     <div className="relative min-h-screen w-full bg-black overflow-hidden font-serif text-zinc-300 selection:bg-blood-900 selection:text-white">
       {/* Static Background Gradients */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* Main intense red gradient from top */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,_#4a0000_0%,_#000000_85%)] opacity-80"></div>
+        {/* Base Gradient: Dark Blood Red from center fading to black at edges */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#5a0000_0%,_#000000_100%)] opacity-90"></div>
         
-        {/* Ambient blood red flows in corners to prevent pure black feel */}
-        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-blood-900/30 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2 mix-blend-screen"></div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blood-900/20 blur-[120px] rounded-full translate-x-1/3 translate-y-1/3"></div>
+        {/* Top Light Source (Intense Red) */}
+        <div className="absolute top-0 left-0 w-full h-[50vh] bg-gradient-to-b from-blood-900/60 to-transparent mix-blend-overlay"></div>
+
+        {/* Ambient blood blobs for texture */}
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blood-600/20 blur-[120px] rounded-full mix-blend-screen animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blood-800/20 blur-[100px] rounded-full mix-blend-screen"></div>
         
-        {/* Texture overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60"></div>
+        {/* Vignette to keep edges dark */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_40%,_black_100%)] opacity-80"></div>
 
         {/* Horizontal Red Line Accent */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blood-600/40 to-transparent"></div>
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blood-600/50 to-transparent"></div>
       </div>
 
       {/* FX Layers */}
-      <div className="bg-noise"></div>
-      <div className="scanlines"></div>
+      <div className="bg-noise mix-blend-overlay opacity-10"></div>
+      <div className="scanlines opacity-40"></div>
       <div className="vignette"></div>
 
       {/* Main Content Wrapper */}
@@ -38,7 +41,7 @@ const Background: React.FC<BackgroundProps> = ({ children }) => {
         </div>
         
         {/* Footer */}
-        <footer className="mt-16 text-center opacity-30 hover:opacity-60 transition-opacity text-[10px] uppercase tracking-[0.3em] font-typewriter text-zinc-500">
+        <footer className="mt-16 text-center opacity-40 hover:opacity-80 transition-opacity text-[10px] uppercase tracking-[0.3em] font-typewriter text-zinc-500 mix-blend-plus-lighter">
             <p className="mb-2">Confidential Investigation • Do Not Distribute</p>
             <p>Cultural Committee | NUVYUVA 2025</p>
         </footer>
