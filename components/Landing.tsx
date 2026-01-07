@@ -38,7 +38,7 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
       {/* Main Title with Glitch Effect */}
       <div className="relative mb-6">
         <h1 
-          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-500 tracking-tighter drop-shadow-2xl text-glitch" 
+          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-500 tracking-tighter drop-shadow-2xl text-glitch uppercase" 
           data-text="CRIME SCENE"
         >
           CRIME SCENE
@@ -47,12 +47,12 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
       </div>
       
       <p className="text-xl md:text-2xl text-blood-500 font-serif italic mb-6 tracking-wide text-shadow-sm">
-        "The truth bleeds through the cracks."
+        "The Night No One Was Supposed to Reach."
       </p>
 
       {/* Gooey Text Animation */}
       <h1 className="nuv-yuva-title">
-        NUV YUVA
+        NUV YUVA 5.0
         <span className="nuv-drop"></span>
         <span className="nuv-drop"></span>
         <span className="nuv-drop"></span>
@@ -60,19 +60,28 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
         <span className="nuv-drop"></span>
       </h1>
 
-      {/* Card Container - More Transparent */}
-      <div className="bg-zinc-950/40 border border-zinc-800 p-8 rounded-sm backdrop-blur-md mb-12 max-w-sm shadow-2xl relative overflow-hidden group">
+      {/* Card Container */}
+      <div className="bg-zinc-950/40 border border-zinc-800 p-8 rounded-sm backdrop-blur-md mb-12 max-w-lg shadow-2xl relative overflow-hidden group">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blood-900 via-blood-600 to-blood-900"></div>
         
-        <p className="text-zinc-400 font-typewriter text-sm leading-relaxed mb-6">
-          <strong className="text-zinc-200">CASE FILE #2025-NUV</strong>
-          <br/><br/>
-          Detectives, a heinous crime has been committed on university grounds. Your team has been selected to uncover the evidence. 
-        </p>
+        <div className="text-zinc-400 font-typewriter text-[11px] leading-relaxed mb-6 text-left space-y-3">
+          <div>
+            <strong className="text-zinc-200">THE INCIDENT:</strong> Late in the evening, long after most students had left, a final-year student was found dead on campus. No signs of struggle. No witnesses willing to speak. No clear footage of the final moments.
+          </div>
+          <div>
+            The victim did not stay at ground level. They moved upward, step by step, following a trail that led far beyond ordinary spaces.
+          </div>
+          <div>
+            <strong className="text-zinc-200">THE SILENCE:</strong> Seven people crossed paths with the victim that night. Each one noticed something. Each one chose not to ask questions. Because some places feel untouchable.
+          </div>
+          <div className="italic text-blood-500">
+            The truth was not buried. It was placed carefully, somewhere people stop counting after six.
+          </div>
+        </div>
         
-        <div className="flex items-center gap-2 justify-center text-xs text-red-500/80 font-bold uppercase tracking-widest border border-red-900/30 py-2 bg-red-950/10">
+        <div className="flex items-center gap-2 justify-center text-[10px] text-red-500/80 font-bold uppercase tracking-widest border border-red-900/30 py-2 bg-red-950/10">
             <Siren className="w-3 h-3 animate-pulse" />
-            <span>Active Investigation</span>
+            <span>Authorized Detectives Only</span>
             <Siren className="w-3 h-3 animate-pulse" />
         </div>
       </div>

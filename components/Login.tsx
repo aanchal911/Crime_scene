@@ -21,7 +21,6 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     setIsLoading(true);
 
     setTimeout(() => {
-      // Normalize inputs: remove whitespace and handle case for username
       const cleanUsername = username.trim().toLowerCase();
       const cleanPassword = password.trim();
 
@@ -48,14 +47,13 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
         <div className="ml-auto text-[10px] font-typewriter text-zinc-500 uppercase">Secure Connection</div>
       </div>
 
-      {/* Main Login Card - Increased Transparency */}
       <div className="bg-black/50 border border-zinc-700 p-8 rounded-b-sm shadow-2xl backdrop-blur-md">
         <div className="flex flex-col items-center mb-8 border-b border-zinc-800/50 pb-6">
             <div className="p-3 bg-zinc-900/50 rounded-full border border-zinc-700 mb-4 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                 <ShieldAlert className="w-8 h-8 text-zinc-400" strokeWidth={1.5} />
             </div>
             <h2 className="text-xl font-bold uppercase tracking-[0.2em] text-zinc-200 font-typewriter mb-1">Restricted Access</h2>
-            <p className="text-zinc-500 text-xs font-mono">AUTHORIZED PERSONNEL ONLY</p>
+            <p className="text-zinc-500 text-xs font-mono text-center uppercase">Team Authentication Required</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-2">
@@ -63,7 +61,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             label="AGENT ID" 
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="ID-XXXX"
+            placeholder="team1, team2..."
             className="font-mono tracking-wider bg-zinc-900/40"
             />
             <Input 
@@ -94,19 +92,13 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
       <div className="mt-8 border border-zinc-800 bg-black/40 p-4 rounded-sm backdrop-blur-sm">
          <div className="flex items-center gap-2 mb-2 text-zinc-400">
             <Info className="w-4 h-4" />
-            <span className="text-xs font-bold uppercase tracking-widest">Demo Access Credentials</span>
+            <span className="text-xs font-bold uppercase tracking-widest">Team Credentials</span>
          </div>
-         <div className="grid grid-cols-2 gap-4 text-xs font-mono text-zinc-500">
-            <div>
-                <span className="block text-zinc-600 uppercase text-[10px]">Team A</span>
-                User: <span className="text-zinc-300">teamA</span> <br/>
-                Pass: <span className="text-zinc-300">123</span>
-            </div>
-            <div>
-                <span className="block text-zinc-600 uppercase text-[10px]">Team B</span>
-                User: <span className="text-zinc-300">teamB</span> <br/>
-                Pass: <span className="text-zinc-300">456</span>
-            </div>
+         <div className="grid grid-cols-2 gap-4 text-[10px] font-mono text-zinc-500">
+            <div>Unit 1: <span className="text-zinc-300">team1</span> / <span className="text-zinc-300">nuv2025</span></div>
+            <div>Unit 2: <span className="text-zinc-300">team2</span> / <span className="text-zinc-300">yuva2025</span></div>
+            <div>Unit 3: <span className="text-zinc-300">team3</span> / <span className="text-zinc-300">crime2025</span></div>
+            <div>Unit 4: <span className="text-zinc-300">team4</span> / <span className="text-zinc-300">clue2025</span></div>
          </div>
       </div>
     </div>
