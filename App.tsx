@@ -12,16 +12,24 @@ const App: React.FC = () => {
   const [activeTeam, setActiveTeam] = useState<TeamConfig | null>(null);
   const [initialClueIndex, setInitialClueIndex] = useState(0);
 
-  // Check for existing session on mount
+  // STRICT RULE: No persistence on mount. 
+  // We clear local storage immediately to ensure fresh start on every reload.
   useEffect(() => {
-    const savedTeamId = localStorage.getItem('crime_scene_team_id');
-    if (savedTeamId && TEAMS[savedTeamId]) {
-      const savedProgress = localStorage.getItem(`crime_scene_${savedTeamId}_progress`);
-      setActiveTeam(TEAMS[savedTeamId]);
-      setInitialClueIndex(savedProgress ? parseInt(savedProgress, 10) : 0);
-      // If we have a session, go straight to game, skip landing/login for better UX on reload
-      setView('game');
-    }
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith('crime_scene_')) {
+        localStorage.removeItem(key);
+      }
+    });
+
+    // Reset visibility handler: If user switches apps/tabs, reload the game immediately.
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        window.location.reload();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
   const handleStart = () => {
@@ -34,34 +42,15 @@ const App: React.FC = () => {
 
   const handleLoginSuccess = (team: TeamConfig) => {
     setActiveTeam(team);
-    // Load progress if exists for this team, otherwise 0
-    const savedProgress = localStorage.getItem(`crime_scene_${team.id}_progress`);
-    setInitialClueIndex(savedProgress ? parseInt(savedProgress, 10) : 0);
-    
-    // Save session
-    localStorage.setItem('crime_scene_team_id', team.id);
-    
+    setInitialClueIndex(0);
+    // Note: We don't save to localStorage here because of the strict "start from beginning" requirement.
     setView('game');
   };
 
   const handleReset = () => {
-    // Clear all app-related localStorage
-    Object.keys(localStorage).forEach(key => {
-      if (key.startsWith('crime_scene_')) {
-        localStorage.removeItem(key);
-      }
-    });
-    
-    // Reset React State
-    setActiveTeam(null);
-    setInitialClueIndex(0);
-    setView('landing');
-    
-    // Force actual window reload to ensure clean slate for mobile browser
     window.location.reload();
   };
 
-  // Render content based on current view state
   const renderContent = () => {
     switch (view) {
       case 'landing':
@@ -80,7 +69,7 @@ const App: React.FC = () => {
             />
           );
         }
-        return <Login onLoginSuccess={handleLoginSuccess} />; // Fallback
+        return <Login onLoginSuccess={handleLoginSuccess} />;
       default:
         return <Landing onStart={handleStart} />;
     }

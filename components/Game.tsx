@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TeamConfig, Clue } from '../types';
 import Button from './Button';
 import Input from './Input';
-import { Lock, Unlock, MapPin, Search, FileText, CheckCircle2, Eye, LogOut } from 'lucide-react';
+import { Lock, Unlock, MapPin, Search, CheckCircle2, LogOut, Eye } from 'lucide-react';
 
 interface GameProps {
   team: TeamConfig;
@@ -16,10 +16,8 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
   const [error, setError] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // Persist progress
-  useEffect(() => {
-    localStorage.setItem(`crime_scene_${team.id}_progress`, currentIndex.toString());
-  }, [currentIndex, team.id]);
+  // STRICT RULE: No persistence in Game component either. 
+  // Progress is strictly memory-based.
 
   const currentClue: Clue | undefined = team.clueSequence[currentIndex];
 
@@ -28,8 +26,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
     if (!currentClue) return;
 
     const normalizedInput = answer.toLowerCase().trim();
-    
-    // Check if input matches any of the valid answers
     const isCorrect = currentClue.correctAnswer.some(
       validAns => validAns.toLowerCase() === normalizedInput
     );
@@ -43,8 +39,7 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
             setAnswer('');
             setIsSuccess(false);
         } else {
-            // Victory State logic is handled by the render condition
-            setCurrentIndex(prev => prev + 1); // Increment to trigger victory view
+            setCurrentIndex(prev => prev + 1);
         }
       }, 2000);
     } else {
@@ -52,7 +47,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
     }
   };
 
-  // --- VICTORY STATE ---
   if (!currentClue) {
     return (
         <div className="text-center animate-fade-in py-12 px-4">
@@ -76,10 +70,8 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
     );
   }
 
-  // --- GAME PLAY STATE ---
   return (
     <div className="w-full animate-fade-in">
-      {/* Header Info Bar */}
       <div className="flex justify-between items-center bg-zinc-900/60 border-t border-b border-zinc-800 py-3 px-4 mb-8 backdrop-blur-sm relative">
         <div className="flex flex-col">
             <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-typewriter">Detective Unit</span>
@@ -93,7 +85,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
             }
           }}
           className="mx-2 p-2 text-zinc-600 hover:text-red-500 transition-colors"
-          title="Abort Mission"
         >
           <LogOut className="w-5 h-5" />
         </button>
@@ -106,9 +97,8 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
         </div>
       </div>
 
-      {/* THE CLUE CARD */}
       <div className="relative group mb-8">
-         <div className="bg-paper text-ink p-1 shadow-2xl transform md:rotate-1 transition-transform duration-500 md:group-hover:rotate-0 relative z-10">
+         <div className="bg-paper text-ink p-1 shadow-2xl transform md:rotate-1 transition-transform duration-500 relative z-10">
             <div className="border-2 border-dashed border-zinc-400/50 p-6 md:p-10 min-h-[300px] flex flex-col relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]">
                 
                 <div className="absolute top-4 right-6 transform rotate-12 border-4 border-red-700/20 text-red-700/20 px-4 py-1 font-black text-2xl md:text-4xl uppercase tracking-tighter pointer-events-none font-typewriter select-none">
@@ -132,13 +122,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
                     <p className="text-xl font-serif leading-relaxed text-zinc-800 mb-6">
                         {currentClue.description}
                     </p>
-
-                    {currentClue.content && (
-                        <div className="bg-zinc-100 p-4 border-l-4 border-zinc-400 italic text-zinc-600 mb-6 font-typewriter text-sm relative">
-                            <span className="absolute -left-2 -top-2 text-4xl text-zinc-300">"</span>
-                            {currentClue.content}
-                        </div>
-                    )}
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-zinc-300 flex items-start gap-3">
@@ -152,7 +135,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
                 </div>
             </div>
          </div>
-         <div className="absolute top-4 left-2 w-full h-full bg-black/50 blur-xl -z-10 transform md:rotate-1"></div>
       </div>
 
       <div className="mb-6 flex justify-center">

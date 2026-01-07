@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Treasure Hunt | NUV YUVA 5.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
               raleway: ['"Raleway"', 'sans-serif'],
             },
             colors: {
-              blood: { // Keeping the key 'blood' to minimize code changes but mapped to purple
+              blood: {
                 500: '#a855f7',
                 600: '#9333ea',
                 700: '#7e22ce',
@@ -34,19 +34,14 @@
                 900: '#581c87',
               },
               paper: '#f0e6d2',
-              ink: '#1a1a1a', // Darker font for paper
+              ink: '#1a1a1a',
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'drip': 'drip 3s infinite ease-in-out',
               'glitch': 'glitch 1s linear infinite',
               'fade-in': 'fadeIn 1s ease-out',
             },
             keyframes: {
-              drip: {
-                '0%, 100%': { transform: 'translateY(0)', opacity: '0.8' },
-                '50%': { transform: 'translateY(5px)', opacity: '1' },
-              },
               glitch: {
                 '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
                 '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
@@ -62,40 +57,38 @@
       }
     </script>
     <style>
+      /* Prevent Text Selection and UI distractions */
+      * {
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+        outline: none !important;
+      }
+      
       body {
         background-color: #050505;
         color: #e4e4e7;
-        overflow-x: hidden;
+        overflow: hidden; /* Lock scroll to app only */
+        position: fixed;
+        width: 100%;
+        height: 100%;
       }
       
-      /* Noise Texture */
       .bg-noise {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
         z-index: 0;
         opacity: 0.05;
         pointer-events: none;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       }
 
-      /* CRT Scanline Effect */
       .scanlines {
-        background: linear-gradient(
-          to bottom,
-          rgba(255,255,255,0),
-          rgba(255,255,255,0) 50%,
-          rgba(0,0,0,0.2) 50%,
-          rgba(0,0,0,0.2)
-        );
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
         background-size: 100% 4px;
         position: fixed;
-        top: 0; 
-        left: 0;
-        right: 0;
-        bottom: 0;
+        top: 0; left: 0; right: 0; bottom: 0;
         z-index: 40;
         pointer-events: none;
         opacity: 0.6;
@@ -103,28 +96,22 @@
 
       .vignette {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         box-shadow: 0 0 150px rgba(0,0,0,0.9) inset;
         z-index: 45;
         pointer-events: none;
       }
 
-      /* Text Glitch Utility */
       .text-glitch {
         position: relative;
       }
-      .text-glitch::before,
-      .text-glitch::after {
+      .text-glitch::before, .text-glitch::after {
         content: attr(data-text);
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #09090b;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: transparent;
       }
       .text-glitch::before {
         left: 2px;
@@ -141,22 +128,13 @@
       
       @keyframes glitch-anim {
         0% { clip: rect(30px, 9999px, 10px, 0); }
-        20% { clip: rect(80px, 9999px, 90px, 0); }
-        40% { clip: rect(10px, 9999px, 50px, 0); }
-        60% { clip: rect(60px, 9999px, 20px, 0); }
-        80% { clip: rect(20px, 9999px, 80px, 0); }
         100% { clip: rect(90px, 9999px, 30px, 0); }
       }
       @keyframes glitch-anim2 {
         0% { clip: rect(60px, 9999px, 20px, 0); }
-        20% { clip: rect(10px, 9999px, 50px, 0); }
-        40% { clip: rect(90px, 9999px, 30px, 0); }
-        60% { clip: rect(30px, 9999px, 10px, 0); }
-        80% { clip: rect(80px, 9999px, 90px, 0); }
         100% { clip: rect(20px, 9999px, 80px, 0); }
       }
 
-      /* Simplified Title Style */
       .nuv-yuva-static-title {
         font-family: 'Raleway', sans-serif;
         font-weight: 900;
@@ -166,16 +144,23 @@
         color: #9333ea; 
         text-transform: uppercase;
         line-height: 1.2;
-        z-index: 10;
         text-align: center;
       }
       
       @media (min-width: 768px) {
-        .nuv-yuva-static-title {
-          font-size: 2.25rem;
-        }
+        .nuv-yuva-static-title { font-size: 2.25rem; }
       }
     </style>
+    <script>
+      // Disable Context Menu (Right Click)
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+      // Neutralize Back Button
+      history.pushState(null, null, location.href);
+      window.onpopstate = function () {
+          history.go(1);
+      };
+    </script>
   <script type="importmap">
 {
   "imports": {

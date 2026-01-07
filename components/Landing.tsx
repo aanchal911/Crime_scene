@@ -13,6 +13,21 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
     setMounted(true);
   }, []);
 
+  const handleStartWithFullscreen = () => {
+    // Attempt to go fullscreen for maximum immersion
+    try {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else if ((document.documentElement as any).webkitRequestFullscreen) {
+        (document.documentElement as any).webkitRequestFullscreen();
+      }
+    } catch (e) {
+      console.warn("Fullscreen request failed");
+    }
+    
+    onStart();
+  };
+
   return (
     <div className={`flex flex-col items-center text-center transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       
@@ -70,7 +85,7 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
         </div>
       </div>
 
-      <Button onClick={onStart} className="w-full md:w-auto min-w-[200px] text-lg">
+      <Button onClick={handleStartWithFullscreen} className="w-full md:w-auto min-w-[200px] text-lg">
         BEGIN INVESTIGATION
       </Button>
     </div>
