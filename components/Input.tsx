@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({ label, error, ...props }) => {
         {label}
       </label>
       <input
-        className={`bg-zinc-900/50 border ${error ? 'border-red-500' : 'border-zinc-800'} text-zinc-200 p-3 outline-none focus:border-blood-600 focus:ring-1 focus:ring-blood-900 transition-all placeholder:text-zinc-700 font-serif text-lg`}
+        className={`bg-zinc-900/50 border ${error ? 'border-red-500' : 'border-zinc-800'} text-zinc-100 p-3 outline-none focus:border-purple-600 focus:ring-1 focus:ring-purple-900 transition-all placeholder:text-zinc-700 font-serif text-lg`}
         autoComplete="off"
         {...props}
       />

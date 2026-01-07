@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crime Scene | NUVYUVA</title>
+    <title>Treasure Hunt | NUV YUVA 5.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,22 @@
               raleway: ['"Raleway"', 'sans-serif'],
             },
             colors: {
-              blood: {
-                500: '#8a0b0b',
-                600: '#6b0000',
-                700: '#4a0000',
-                900: '#2b0000',
-                950: '#1a0000',
+              blood: { // Keeping the key 'blood' to minimize code changes but mapped to purple
+                500: '#a855f7',
+                600: '#9333ea',
+                700: '#7e22ce',
+                900: '#581c87',
+                950: '#3b0764',
+              },
+              purple: {
+                500: '#a855f7',
+                600: '#9333ea',
+                700: '#7e22ce',
+                800: '#6b21a8',
+                900: '#581c87',
               },
               paper: '#f0e6d2',
-              ink: '#2d2d2d',
+              ink: '#1a1a1a', // Darker font for paper
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -121,7 +128,7 @@
       }
       .text-glitch::before {
         left: 2px;
-        text-shadow: -1px 0 #ff00c1;
+        text-shadow: -1px 0 #a855f7;
         clip: rect(44px, 450px, 56px, 0);
         animation: glitch-anim 5s infinite linear alternate-reverse;
       }
@@ -149,57 +156,23 @@
         100% { clip: rect(20px, 9999px, 80px, 0); }
       }
 
-      /* NUV YUVA Gooey Text Animation */
-      .nuv-yuva-title {
+      /* Simplified Title Style */
+      .nuv-yuva-static-title {
         font-family: 'Raleway', sans-serif;
         font-weight: 900;
-        font-size: 3.5rem;
-        margin: 1rem 0 2rem 0;
-        filter: url(#goo);
-        position: relative;
-        letter-spacing: 0.05em; /* Relaxed from -.12em to avoid merging */
-        word-spacing: 0.4em;    /* Added extra space between words */
-        color: #8a0b0b; /* Matching the blood theme */
+        font-size: 1.5rem;
+        margin: 1rem 0 2.5rem 0;
+        letter-spacing: 0.15em;
+        color: #9333ea; 
         text-transform: uppercase;
-        line-height: 1;
+        line-height: 1.2;
         z-index: 10;
-        white-space: nowrap;
+        text-align: center;
       }
       
       @media (min-width: 768px) {
-        .nuv-yuva-title {
-          font-size: 5rem;
-        }
-      }
-
-      .nuv-drop {
-        width: .1em; height: .1em;
-        border-radius: 0 100% 100% 100%;
-        background-color: currentColor;
-        position: absolute;
-        top: 72%;
-        animation: drop-anim 3s infinite both;
-        pointer-events: none;
-      }
-
-      .nuv-drop:nth-child(1) { left: 14%; }
-      .nuv-drop:nth-child(2) { left: 39%; animation-delay: -.4s; }
-      .nuv-drop:nth-child(3) { left: 55%; animation-delay: -1.5s; }
-      .nuv-drop:nth-child(4) { left: 82%; animation-delay: -.8s; }
-      .nuv-drop:nth-child(5) { left: 95.5%; animation-delay: -1.3s; }
-
-      @keyframes drop-anim {
-        0% {
-          transform: translateY(0) scaleX(.85) rotate(45deg);
-          animation-timing-function: ease-out;
-        }
-        60% {
-          transform: translateY(50px) scaleX(.85) rotate(45deg);
-          animation-timing-function: ease-in;
-        }
-        80%, 100% {
-          transform: translateY(100px) scaleX(.85) rotate(45deg);
-          opacity: 0;
+        .nuv-yuva-static-title {
+          font-size: 2.25rem;
         }
       }
     </style>
@@ -215,7 +188,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
