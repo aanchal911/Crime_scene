@@ -44,6 +44,23 @@ const App: React.FC = () => {
     setView('game');
   };
 
+  const handleReset = () => {
+    // Clear all app-related localStorage
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith('crime_scene_')) {
+        localStorage.removeItem(key);
+      }
+    });
+    
+    // Reset React State
+    setActiveTeam(null);
+    setInitialClueIndex(0);
+    setView('landing');
+    
+    // Force actual window reload to ensure clean slate for mobile browser
+    window.location.reload();
+  };
+
   // Render content based on current view state
   const renderContent = () => {
     switch (view) {
@@ -55,7 +72,13 @@ const App: React.FC = () => {
         return <Login onLoginSuccess={handleLoginSuccess} />;
       case 'game':
         if (activeTeam) {
-          return <Game team={activeTeam} initialClueIndex={initialClueIndex} />;
+          return (
+            <Game 
+              team={activeTeam} 
+              initialClueIndex={initialClueIndex} 
+              onReset={handleReset} 
+            />
+          );
         }
         return <Login onLoginSuccess={handleLoginSuccess} />; // Fallback
       default:
