@@ -6,7 +6,7 @@ interface BackgroundProps {
 
 const Background: React.FC<BackgroundProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen w-full bg-black font-serif text-zinc-300 selection:bg-purple-900 selection:text-white overflow-x-hidden">
+    <div className="relative min-h-screen w-full bg-black font-serif text-zinc-300 selection:bg-purple-900 selection:text-white">
       {/* Static Background Gradients */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Base Gradient: Dark Purple from center fading to black at edges */}
@@ -27,13 +27,13 @@ const Background: React.FC<BackgroundProps> = ({ children }) => {
       </div>
 
       {/* FX Layers */}
-      <div className="bg-noise mix-blend-overlay opacity-10"></div>
-      <div className="scanlines opacity-40"></div>
-      <div className="vignette"></div>
+      <div className="bg-noise mix-blend-overlay opacity-10 pointer-events-none fixed inset-0"></div>
+      <div className="scanlines opacity-40 pointer-events-none fixed inset-0"></div>
+      <div className="vignette pointer-events-none fixed inset-0"></div>
 
       {/* Main Content Wrapper - Adjusted for natural scrolling */}
       <div className="relative z-50 w-full min-h-screen flex flex-col items-center pt-12 pb-24 px-4 md:px-6">
-        <div className="w-full max-w-lg relative">
+        <div className="w-full max-w-lg relative flex flex-col items-center">
             {/* Top Border Accent */}
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-purple-600 to-transparent opacity-50"></div>
             
@@ -41,7 +41,7 @@ const Background: React.FC<BackgroundProps> = ({ children }) => {
         </div>
         
         {/* Footer */}
-        <footer className="mt-auto pt-16 text-center opacity-40 hover:opacity-80 transition-opacity text-[10px] uppercase tracking-[0.3em] font-typewriter text-zinc-500 mix-blend-plus-lighter">
+        <footer className="mt-auto pt-16 text-center opacity-40 hover:opacity-80 transition-opacity text-[10px] uppercase tracking-[0.3em] font-typewriter text-zinc-500 mix-blend-plus-lighter w-full">
             <p className="mb-2">Confidential Investigation • Do Not Distribute</p>
             <p>Cultural Committee | NUVYUVA 5.0</p>
         </footer>
