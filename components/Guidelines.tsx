@@ -23,44 +23,40 @@ const Guidelines: React.FC<GuidelinesProps> = ({ onProceed }) => {
         <div className="space-y-4">
           <div className="flex gap-4">
             <span className="text-blood-500 font-bold font-mono">01.</span>
-            <p>This is a college-based treasure hunt conducted through a website and campus QR codes.</p>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">02.</span>
             <p>Each team must be pre-registered, and all team members’ phones must be logged in using the same team credentials.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">03.</span>
+            <span className="text-blood-500 font-bold font-mono">02.</span>
             <p>The competition consists of <strong>6 total clues</strong> for each team.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">04.</span>
+            <span className="text-blood-500 font-bold font-mono">03.</span>
             <p>Clues 1 to 5 are team-specific, while the 6th clue is common for all teams.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">05.</span>
+            <span className="text-blood-500 font-bold font-mono">04.</span>
             <p>Teams must solve the online clue, reach the correct campus location, and scan the QR code to unlock the next clue.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">06.</span>
+            <span className="text-blood-500 font-bold font-mono">05.</span>
             <p>A new clue will not appear on the website unless the correct QR code is scanned.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">07.</span>
+            <span className="text-blood-500 font-bold font-mono">06.</span>
             <p>No hints will be provided at any stage of the competition.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">08.</span>
+            <span className="text-blood-500 font-bold font-mono">07.</span>
             <p>There is no time limit; progress depends solely on solving and scanning in sequence.</p>
           </div>
           <div className="flex gap-4">
-            <span className="text-blood-500 font-bold font-mono">09.</span>
+            <span className="text-blood-500 font-bold font-mono">08.</span>
             <p>The first team to unlock the 6th (final) common clue (won’t be qr code) will be declared the winner.</p>
           </div>
           <div className="flex gap-4 border-t border-zinc-800 pt-4 mt-4">
             <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0" />
             <p className="text-red-500/80 text-sm uppercase font-typewriter">
-              10. Any team found sharing clues or damaging QR codes faces immediate disqualification, and the organizer’s decision shall be final.
+              09. Any team found sharing clues or damaging QR codes faces immediate disqualification, and the organizer’s decision shall be final.
             </p>
           </div>
         </div>

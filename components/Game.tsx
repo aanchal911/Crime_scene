@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TeamConfig, Clue } from '../types';
 import Button from './Button';
 import Input from './Input';
-import { Lock, Unlock, MapPin, Search, CheckCircle2, LogOut, Eye } from 'lucide-react';
+import { Lock, Unlock, MapPin, Search, CheckCircle2, LogOut } from 'lucide-react';
 
 interface GameProps {
   team: TeamConfig;
@@ -16,9 +16,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
   const [error, setError] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // STRICT RULE: No persistence in Game component either. 
-  // Progress is strictly memory-based.
-
   const currentClue: Clue | undefined = team.clueSequence[currentIndex];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,7 +24,7 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
 
     const normalizedInput = answer.toLowerCase().trim();
     const isCorrect = currentClue.correctAnswer.some(
-      validAns => validAns.toLowerCase() === normalizedInput
+      validAns => validAns.toLowerCase() === normalizedInput && validAns !== ""
     );
 
     if (isCorrect) {
@@ -135,14 +132,6 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
                 </div>
             </div>
          </div>
-      </div>
-
-      <div className="mb-6 flex justify-center">
-        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-2 flex items-center gap-2">
-            <Eye className="w-4 h-4 text-yellow-500" />
-            <span className="text-xs font-mono text-yellow-600 uppercase">Demo Hint:</span>
-            <span className="text-sm font-bold text-yellow-500 font-typewriter tracking-wider">{currentClue.correctAnswer[0]}</span>
-        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="relative z-20 max-w-md mx-auto px-4 pb-12">

@@ -68,10 +68,8 @@
       body {
         background-color: #050505;
         color: #e4e4e7;
-        overflow: hidden; /* Lock scroll to app only */
-        position: fixed;
-        width: 100%;
-        height: 100%;
+        /* Removed overflow: hidden and position: fixed to allow scrolling */
+        min-height: 100vh;
       }
       
       .bg-noise {

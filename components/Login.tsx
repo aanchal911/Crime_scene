@@ -3,7 +3,7 @@ import Button from './Button';
 import Input from './Input';
 import { TEAMS } from '../constants';
 import { TeamConfig } from '../types';
-import { ShieldAlert, Terminal, Info } from 'lucide-react';
+import { ShieldAlert, Terminal } from 'lucide-react';
 
 interface LoginProps {
   onLoginSuccess: (team: TeamConfig) => void;
@@ -25,7 +25,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
       const cleanPassword = password.trim();
 
       const foundTeam = Object.values(TEAMS).find(
-        t => t.username.toLowerCase() === cleanUsername && t.password === cleanPassword
+        t => t.username.toLowerCase() === cleanUsername && t.password !== "" && t.password === cleanPassword
       );
 
       if (foundTeam) {
@@ -61,7 +61,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             label="AGENT ID" 
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="team1, team2..."
+            placeholder="AGENT_ID"
             className="font-mono tracking-wider bg-zinc-900/40"
             />
             <Input 
@@ -86,20 +86,6 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
                 </Button>
             </div>
         </form>
-      </div>
-      
-      {/* Demo Credentials Hint */}
-      <div className="mt-8 border border-zinc-800 bg-black/40 p-4 rounded-sm backdrop-blur-sm">
-         <div className="flex items-center gap-2 mb-2 text-zinc-400">
-            <Info className="w-4 h-4" />
-            <span className="text-xs font-bold uppercase tracking-widest">Team Credentials</span>
-         </div>
-         <div className="grid grid-cols-2 gap-4 text-[10px] font-mono text-zinc-500">
-            <div>Unit 1: <span className="text-zinc-300">team1</span> / <span className="text-zinc-300">nuv2025</span></div>
-            <div>Unit 2: <span className="text-zinc-300">team2</span> / <span className="text-zinc-300">yuva2025</span></div>
-            <div>Unit 3: <span className="text-zinc-300">team3</span> / <span className="text-zinc-300">crime2025</span></div>
-            <div>Unit 4: <span className="text-zinc-300">team4</span> / <span className="text-zinc-300">clue2025</span></div>
-         </div>
       </div>
     </div>
   );
