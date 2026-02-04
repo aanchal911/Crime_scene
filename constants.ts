@@ -4,7 +4,7 @@ import { TeamConfig, Clue } from './types';
 const COMMON_FINAL_CLUE: Clue = {
   id: 6,
   title: "FILE #06: THE FINAL POSITION",
-  description: "The trail does not end inside a room.\nIt ends where silence looks peaceful.\nWater was expected, but sand tells the real story.\nSeven levels above the ground, near a room marked with numbers,\nthe truth waits outside, not within.",
+  description: "The trail does not end inside a room.\nIt ends where silence looks peaceful.\nWater was expected, but sand tells the real story.\nSeven levels above the ground, near a room marked with numbers,\nthe truth waits outside, not within.\nGo to A Block.\nReach the seventh floor.",
   type: 'text',
   question: "What is the answer hidden at the top?",
   correctAnswer: ["a701"],
@@ -151,18 +151,18 @@ const CLUES_4: Clue[] = [
   {
     id: 1,
     title: "FILE #01",
-    description: "The victim stepped into a place where mistakes are expensive.\nHere, danger is expected but only when rules are followed.\nWarnings hang on the wall,\nand red waits quietly for emergencies that never announce themselves.\nDon’t enter blindly.\nLook beside what exists to stop things from getting worse.",
+    description: "The victim didn’t stop where work was done.\nThey stopped where reminders are ignored.\nA message about cleanliness watched them,\nstanding bright against a wall meant to be passed, not noticed.\nFollow the line that tells you where to walk,\nand look beside what keeps things clean.",
     type: 'text',
     question: "Enter the password found at this location:",
-    correctAnswer: ["warning"],
+    correctAnswer: ["clean"],
   },
   {
     id: 2,
     title: "FILE #02",
-    description: "Before anything is built, it is drawn.\nBefore anyone enters, the route is decided.\nThat night, the victim didn’t walk blindly\nthey checked where paths begin and where they’re blocked.\nThis place shows everything at once,\nbut hides what matters in plain sight.\nFind the guide that tells you where you are.",
+    description: "The warning was missed upstairs.\nSo the victim went where reminders fade and engines replace voices.\nThis place exists beneath silence,\nbeneath study,\nbeneath attention.\nLights are artificial here,\nand footsteps echo longer than they should.\nGo below where knowledge sleeps,\nand find what was never meant to be noticed.",
     type: 'text',
     question: "Enter the password found at this location:",
-    correctAnswer: ["route"],
+    correctAnswer: ["noticed"],
   },
   {
     id: 3,
@@ -187,6 +187,186 @@ const CLUES_4: Clue[] = [
     type: 'text',
     question: "Enter the password found at this location:",
     correctAnswer: ["transition"],
+  },
+  COMMON_FINAL_CLUE
+];
+
+// --- TEAM 5 SEQUENCE ---
+const CLUES_5: Clue[] = [
+  {
+    id: 1,
+    title: "FILE #01",
+    description: "The victim stepped into a place where mistakes are expensive.\nHere, danger is expected but only when rules are followed.\nWarnings hang on the wall,\nand red waits quietly for emergencies that never announce themselves.\nDon’t enter blindly.\nLook beside what exists to stop things from getting worse.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["warning"],
+  },
+  {
+    id: 2,
+    title: "FILE #02",
+    description: "Before anything is built, it is drawn.\nBefore anyone enters, the route is decided.\nThat night, the victim didn’t walk blindly\nthey checked where paths begin and where they’re blocked.\nThis place shows everything at once,\nbut hides what matters in plain sight.\nFind the guide that tells you where you are.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["route"],
+  },
+  {
+    id: 3,
+    title: "FILE #03",
+    description: "Not every truth is spoken.\nSome are written, printed, and quietly forgotten.\nAfter passing authority, the victim went below\nto the place where forms begin, where ink decides what becomes official.\nFind where supplies wait to be used, and look beyond what’s for sale.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["supplies"],
+  },
+  {
+    id: 4,
+    title: "FILE #04",
+    description: "The victim trusted evidence. Not rumours. Not assumptions.\nThey climbed to the level where facts are tested,\nand results are pinned for everyone to see.\nThree floors above the ground, science speaks through notices,\ncharts, schedules, and updates.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["results"],
+  },
+  {
+    id: 5,
+    title: "FILE #05",
+    description: "The victim didn’t go higher this time.\nThey stopped near a place everyone recognises,\nbut looked toward what grows quietly beside it.\nThis isn’t concrete. It bends, not breaks. It stands together, never alone.\nFind the cluster that stays upright near food.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["cluster"],
+  },
+  COMMON_FINAL_CLUE
+];
+
+// --- TEAM 6 SEQUENCE ---
+const CLUES_6: Clue[] = [
+  {
+    id: 1,
+    title: "FILE #01",
+    description: "The victim didn’t go where vehicles rest.\nThey stopped where they were told not to.\nA warning stood clear: red, firm, and easy to ignore.\nThis was a place of pause,\nbefore steps were taken and decisions moved indoors.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["pause"],
+  },
+  {
+    id: 2,
+    title: "FILE #02",
+    description: "Before decisions are made, they are argued.\nBefore permission is granted, it is defended.\nThat night, the victim paused where truth is rehearsed.\nThis place looks like a courtroom, but nothing here is final.\nFind where cases are tested, and look around the edges.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["edges"],
+  },
+  {
+    id: 3,
+    title: "FILE #03",
+    description: "After crossing warnings and choosing paths,\nthe victim stopped at a place that looks peaceful.\nNothing rushes here. Nothing speaks.\nLife moves quietly beneath the surface, visible only if you stand still.\nGo where still water watches everything.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["closer"],
+  },
+  {
+    id: 4,
+    title: "FILE #04",
+    description: "After calm water and quiet reflection, the victim returned to something unmistakable.\nThis isn’t a room. It’s shaped carefully, alive, maintained.\nIt represents the whole, yet grows from the ground.\nBeside it, movement pauses, and vehicles wait.\nFind the symbol formed by nature.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["symbol"],
+  },
+  {
+    id: 5,
+    title: "FILE #05",
+    description: "The victim didn’t stay where food is served.\nThey followed a path people rarely use.\nThis route rises quietly, away from noise and routine.\nGo to the place where meals end,\nand look for the steps that lead above.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["above"],
+  },
+  COMMON_FINAL_CLUE
+];
+
+// --- TEAM 7 SEQUENCE ---
+const CLUES_7: Clue[] = [
+  {
+    id: 1,
+    title: "FILE #01",
+    description: "Discipline watches even when no one speaks.\nUniformed silence, framed rules, and eyes that never blink.\nThe killer stood where duty hangs on walls and plants stand in line.\nSearch beneath order, not chaos.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["order"],
+  },
+  {
+    id: 2,
+    title: "FILE #02",
+    description: "Inside, noise hides everything. Outside, habits slow down.\nThe victim didn’t sit where crowds gather,\nthey chose the quieter five.\nLook where people sit to pause,\nnot where they eat to rush.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["quieter"],
+  },
+  {
+    id: 3,
+    title: "FILE #03",
+    description: "Before power, there was labour.\nBefore systems, there were tools.\nThat night, the victim paused at something old, crafted to work the land.\nIt stands on the ground floor, made of wood, displayed, not used.\nFind the tool that fed generations.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["rooted"],
+  },
+  {
+    id: 4,
+    title: "FILE #04",
+    description: "Roots led the victim here, but movement did not stop.\nThis is not a room or a corridor.\nIt is a space meant to connect, where paths meet before separating again.\nLight enters freely, yet direction is controlled.\nFind the place that gathers everything inside it.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["names"],
+  },
+  {
+    id: 5,
+    title: "FILE #05",
+    description: "The victim followed rhythm, not voices.\nThey stopped where sound is practiced, not performed.\nThis place keeps instruments waiting, and silence matters as much as noise.\nFind where melodies begin, and listen before you look.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["melodies"],
+  },
+  COMMON_FINAL_CLUE
+];
+
+// --- TEAM 8 SEQUENCE ---
+const CLUES_8: Clue[] = [
+  {
+    id: 1,
+    title: "FILE #01",
+    description: "I live below the usual path,\nwhere footsteps slow and voices drop.\nPeople don’t rush here, they sit, sip, and stay.\nFind the place where time pauses with a cup.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["linger"],
+  },
+  {
+    id: 2,
+    title: "FILE #02",
+    description: "You have already found comfort,\nbut the truth hides closer than you think.\nNot far from warmth, not far from seats,\nlook where people talk softly and wait.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["basement"],
+  },
+  {
+    id: 3,
+    title: "FILE #03",
+    description: "Every journey begins somewhere.\nBefore classrooms, before corridors, before stairs.\nColours grow here, flowers speak without words,\nand everyone passes through.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["rooted"],
+  },
+  {
+    id: 4,
+    title: "FILE #04",
+    description: "It looks calm. It looks harmless.\nWater should move here, but it doesn’t.\nPeople come close with cups in hand, yet never look down.\nSearch beneath what stays still.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["still"],
+  },
+  {
+    id: 5,
+    title: "FILE #05",
+    description: "The victim climbed higher, away from noise and comfort.\nThis place exists for care, not curiosity.\nWhat stays here breathes, yet remains unseen.\nSigns warn you before doors do.",
+    type: 'text',
+    question: "Enter the password found at this location:",
+    correctAnswer: ["restricted"],
   },
   COMMON_FINAL_CLUE
 ];
@@ -220,5 +400,33 @@ export const TEAMS: Record<string, TeamConfig> = {
     password: 'clue2025',
     name: 'Unit Delta',
     clueSequence: CLUES_4
+  },
+  team5: {
+    id: 'team5',
+    username: 'team5',
+    password: 'warn2025',
+    name: 'Unit Epsilon',
+    clueSequence: CLUES_5
+  },
+  team6: {
+    id: 'team6',
+    username: 'team6',
+    password: 'path2025',
+    name: 'Unit Zeta',
+    clueSequence: CLUES_6
+  },
+  team7: {
+    id: 'team7',
+    username: 'team7',
+    password: 'nuvyuva',
+    name: 'Unit Eta',
+    clueSequence: CLUES_7
+  },
+  team8: {
+    id: 'team8',
+    username: 'team8',
+    password: 'case2025',
+    name: 'Unit Theta',
+    clueSequence: CLUES_8
   }
 };
