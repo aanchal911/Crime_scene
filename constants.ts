@@ -3,11 +3,11 @@ import { TeamConfig, Clue } from './types';
 // --- COMMON FINAL CLUE (CLUE 6) ---
 const COMMON_FINAL_CLUE: Clue = {
   id: 6,
-  title: "FILE #06: THE FINAL POSITION",
-  description: "The trail does not end inside a room.\nIt ends where silence looks peaceful.\nWater was expected, but sand tells the real story.\nSeven levels above the ground, near a room marked with numbers,\nthe truth waits outside, not within.\nGo to A Block.\nReach the seventh floor.",
+  title: "🧠 FINAL RIDDLE",
+  description: "You’ve been chasing movement.\nUp. Down. Inside. Outside.\n\nBut the night never truly moved forward.\nIt only widened.\n\nThe first voice was not spoken in private.\nIt was meant for many.\nYet everyone listened,\nand no one heard.\n\nReturn to the place where silence is demanded,\nlights decide who is seen,\nand one voice controls hundreds.\n\nClimb until hierarchy feels familiar.\nLook for the space that doesn’t belong to a room,\nbut holds every beginning.",
   type: 'text',
-  question: "What is the answer hidden at the top?",
-  correctAnswer: ["a701"],
+  question: "What is the final answer hidden at this destination?",
+  correctAnswer: ["auditorium"],
   isFinal: true
 };
 

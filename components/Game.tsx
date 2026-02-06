@@ -30,15 +30,19 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
     if (isCorrect) {
       setIsSuccess(true);
       setError('');
+      
+      // Speed up transition for better UX
       setTimeout(() => {
         if (currentIndex < team.clueSequence.length - 1) {
             setCurrentIndex(prev => prev + 1);
             setAnswer('');
             setIsSuccess(false);
         } else {
+            // Final clue transition
             setCurrentIndex(prev => prev + 1);
+            setIsSuccess(false);
         }
-      }, 2000);
+      }, 1500);
     } else {
       setError('EVIDENCE MISMATCH. TRY AGAIN.');
     }
@@ -116,7 +120,7 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
                 </div>
 
                 <div className="flex-grow">
-                    <p className="text-xl font-serif leading-relaxed text-zinc-800 mb-6">
+                    <p className="text-xl font-serif leading-relaxed text-zinc-800 mb-6 whitespace-pre-wrap">
                         {currentClue.description}
                     </p>
                 </div>
