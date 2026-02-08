@@ -64,9 +64,9 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
                 </p>
             </div>
             
-            <Button onClick={onReset} variant="secondary" className="max-w-xs mx-auto">
-                RESTART INVESTIGATION
-            </Button>
+            <p className="text-zinc-600 font-typewriter text-[10px] uppercase tracking-[0.3em] opacity-50">
+                Session Finished. Access Logs Closed.
+            </p>
         </div>
     );
   }
@@ -81,7 +81,7 @@ const Game: React.FC<GameProps> = ({ team, initialClueIndex, onReset }) => {
         
         <button 
           onClick={() => {
-            if(confirm("Abort current mission and return to main menu?")) {
+            if(confirm("Abort current mission? This will wipe all progress.")) {
               onReset();
             }
           }}

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Treasure Hunt | NUV YUVA 5.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,13 +63,14 @@
         -webkit-user-select: none !important;
         -webkit-touch-callout: none !important;
         outline: none !important;
+        -webkit-tap-highlight-color: transparent;
       }
       
       body {
         background-color: #050505;
         color: #e4e4e7;
-        /* Removed overflow: hidden and position: fixed to allow scrolling */
         min-height: 100vh;
+        overflow-x: hidden;
       }
       
       .bg-noise {
@@ -153,11 +154,13 @@
       // Disable Context Menu (Right Click)
       document.addEventListener('contextmenu', event => event.preventDefault());
 
-      // Neutralize Back Button
-      history.pushState(null, null, location.href);
-      window.onpopstate = function () {
-          history.go(1);
-      };
+      // Neutralize Back Button and History
+      (function() {
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+      })();
     </script>
   <script type="importmap">
 {

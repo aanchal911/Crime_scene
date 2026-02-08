@@ -35,11 +35,11 @@ const Guidelines: React.FC<GuidelinesProps> = ({ onProceed }) => {
           </div>
           <div className="flex gap-4">
             <span className="text-blood-500 font-bold font-mono">04.</span>
-            <p>Teams must solve the online clue, reach the correct campus location, and scan the QR code to unlock the next clue.</p>
+            <p>Teams must solve the online clue, reach the correct campus location, and enter the <strong>exact answer</strong> found at the destination to unlock the next clue.</p>
           </div>
           <div className="flex gap-4">
             <span className="text-blood-500 font-bold font-mono">05.</span>
-            <p>A new clue will not appear on the website unless the correct QR code is scanned.</p>
+            <p>A new clue will not appear on the website unless the correct answer for the current location is entered.</p>
           </div>
           <div className="flex gap-4">
             <span className="text-blood-500 font-bold font-mono">06.</span>
@@ -47,16 +47,16 @@ const Guidelines: React.FC<GuidelinesProps> = ({ onProceed }) => {
           </div>
           <div className="flex gap-4">
             <span className="text-blood-500 font-bold font-mono">07.</span>
-            <p>There is no time limit; progress depends solely on solving and scanning in sequence.</p>
+            <p>There is no time limit; progress depends solely on solving and inputting answers in sequence.</p>
           </div>
           <div className="flex gap-4">
             <span className="text-blood-500 font-bold font-mono">08.</span>
-            <p>The first team to unlock the 6th (final) common clue (won’t be qr code) will be declared the winner.</p>
+            <p>The first team to solve the 6th (final) common riddle will be declared the winner.</p>
           </div>
           <div className="flex gap-4 border-t border-zinc-800 pt-4 mt-4">
             <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0" />
             <p className="text-red-500/80 text-sm uppercase font-typewriter">
-              09. Any team found sharing clues or damaging QR codes faces immediate disqualification, and the organizer’s decision shall be final.
+              09. Any team found sharing clues or sabotaging other units faces immediate disqualification, and the organizer’s decision shall be final.
             </p>
           </div>
         </div>

@@ -18,7 +18,7 @@ export interface TeamConfig {
   clueSequence: Clue[];
 }
 
-export type ViewState = 'landing' | 'guidelines' | 'login' | 'game' | 'victory';
+export type ViewState = 'landing' | 'guidelines' | 'login' | 'game' | 'victory' | 'disqualified';
 
 export interface GameState {
   currentView: ViewState;
